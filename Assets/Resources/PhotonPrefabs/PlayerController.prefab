@@ -265,6 +265,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3964068302077117859}
+  - component: {fileID: 5346686197392477453}
   m_Layer: 0
   m_Name: Rifle
   m_TagString: Untagged
@@ -288,6 +289,21 @@ Transform:
   m_Father: {fileID: 8200873932671545761}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5346686197392477453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4714693975305662309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dad4a115c52187144acffe4b9838418d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemInfo: {fileID: 11400000, guid: bfc3c6949ebc00948afeddf2bace2650, type: 2}
+  itemGameObject: {fileID: 8487355774007122290}
+  cam: {fileID: 8270653512443287035}
 --- !u!1 &4843140254378066196
 GameObject:
   m_ObjectHideFlags: 0
@@ -427,8 +443,8 @@ MonoBehaviour:
   jumpForce: 300
   smoothTime: 0.15
   items:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 5346686197392477453}
+  - {fileID: 6369798718382159570}
 --- !u!114 &5328290300118992473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -577,6 +593,7 @@ GameObject:
   - component: {fileID: 5134298022960694310}
   - component: {fileID: 8270653512443287035}
   - component: {fileID: 9151451787722810904}
+  - component: {fileID: 6919892582602194523}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -650,6 +667,66 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8600770910484028587}
   m_Enabled: 1
+--- !u!114 &6919892582602194523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8600770910484028587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeTrigger: {fileID: 0}
+  volumeLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  stopNaNPropagation: 1
+  finalBlitToCameraTarget: 0
+  antialiasingMode: 0
+  temporalAntialiasing:
+    jitterSpread: 0.75
+    sharpness: 0.25
+    stationaryBlending: 0.95
+    motionBlending: 0.85
+  subpixelMorphologicalAntialiasing:
+    quality: 2
+  fastApproximateAntialiasing:
+    fastMode: 0
+    keepAlpha: 0
+  fog:
+    enabled: 1
+    excludeSkybox: 1
+  debugLayer:
+    lightMeter:
+      width: 512
+      height: 256
+      showCurves: 1
+    histogram:
+      width: 512
+      height: 256
+      channel: 3
+    waveform:
+      exposure: 0.12
+      height: 256
+    vectorscope:
+      size: 256
+      exposure: 0.12
+    overlaySettings:
+      linearDepth: 0
+      motionColorIntensity: 4
+      motionGridSize: 64
+      colorBlindnessType: 0
+      colorBlindnessStrength: 1
+  m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
+  m_ShowToolkit: 0
+  m_ShowCustomSorter: 0
+  breakBeforeColorGrading: 0
+  m_BeforeTransparentBundles: []
+  m_BeforeStackBundles: []
+  m_AfterStackBundles: []
 --- !u!1 &9185466821452834214
 GameObject:
   m_ObjectHideFlags: 0
@@ -659,6 +736,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5041469901542709108}
+  - component: {fileID: 6369798718382159570}
   m_Layer: 0
   m_Name: Pistol
   m_TagString: Untagged
@@ -682,3 +760,18 @@ Transform:
   m_Father: {fileID: 8200873932671545761}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6369798718382159570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9185466821452834214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dad4a115c52187144acffe4b9838418d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemInfo: {fileID: 11400000, guid: 1d38977d0ef049c459cd59b12f14d798, type: 2}
+  itemGameObject: {fileID: 2708925861966745658}
+  cam: {fileID: 8270653512443287035}
