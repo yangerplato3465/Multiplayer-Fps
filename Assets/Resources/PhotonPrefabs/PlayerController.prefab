@@ -93,7 +93,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3812618864667836754}
   m_Layer: 0
-  m_Name: Gun2
+  m_Name: PistolObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -265,9 +265,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3964068302077117859}
-  - component: {fileID: 2548575544247458380}
   m_Layer: 0
-  m_Name: Gun1Item
+  m_Name: Rifle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -289,20 +288,6 @@ Transform:
   m_Father: {fileID: 8200873932671545761}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2548575544247458380
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4714693975305662309}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d55251064d57754c813fc9c7918c1a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemInfo: {fileID: 11400000, guid: bfc3c6949ebc00948afeddf2bace2650, type: 2}
-  itemGameObject: {fileID: 8487355774007122290}
 --- !u!1 &4843140254378066196
 GameObject:
   m_ObjectHideFlags: 0
@@ -442,8 +427,8 @@ MonoBehaviour:
   jumpForce: 300
   smoothTime: 0.15
   items:
-  - {fileID: 2548575544247458380}
-  - {fileID: 1436054763538244421}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &5328290300118992473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -559,7 +544,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4454236303099646661}
   m_Layer: 0
-  m_Name: Gun1
+  m_Name: RifleObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -674,9 +659,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5041469901542709108}
-  - component: {fileID: 1436054763538244421}
   m_Layer: 0
-  m_Name: Gun2Item
+  m_Name: Pistol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -698,17 +682,3 @@ Transform:
   m_Father: {fileID: 8200873932671545761}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1436054763538244421
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9185466821452834214}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d55251064d57754c813fc9c7918c1a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemInfo: {fileID: 11400000, guid: 1d38977d0ef049c459cd59b12f14d798, type: 2}
-  itemGameObject: {fileID: 2708925861966745658}
