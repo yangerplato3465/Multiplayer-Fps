@@ -2,10 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using Hashtable = ExitGames.Client.Photon.Hashtable;
+using Photon.Realtime;
 
-public class PlayerController : MonoBehaviour {
+public class PlayerController : MonoBehaviourPunCallbacks {
     [SerializeField] GameObject cameraHolder;
     [SerializeField] float mouseSensitivity, sprintSpeed, walkSpeed, jumpForce, smoothTime;
+    [SerializeField] Item[] items;
+    int itemIndex;
+    int previousItemIndex = -1;
     Rigidbody rb;
     bool grounded;
     Vector3 smoothMoveVelocity;
@@ -19,7 +24,9 @@ public class PlayerController : MonoBehaviour {
     }
 
     void Start() {
-        if (!PV.IsMine) {
+        if (PV.IsMine) {
+            EquipItem(0);
+        } else {
             Destroy(GetComponentInChildren<Camera>().gameObject);
             Destroy(rb);
         }
@@ -30,6 +37,21 @@ public class PlayerController : MonoBehaviour {
         Look();
         Move();
         Jump();
+
+        for (int i = 0; i < items.Length; i++) {
+            if(Input.GetKeyDown((i + 1).ToString())){
+                EquipItem(i);
+                break;
+            }
+        }
+
+        if(Input.GetAxisRaw("Mouse ScrollWheel") > 0f) {
+            if(itemIndex >= items.Length - 1) EquipItem(0);
+            else EquipItem(itemIndex + 1);
+        } else if (Input.GetAxisRaw("Mouse ScrollWheel") < 0f) {
+            if(itemIndex <= 0) EquipItem(items.Length - 1);
+            else EquipItem(itemIndex - 1);
+        }
     }
 
     void FixedUpdate() {
@@ -58,5 +80,26 @@ public class PlayerController : MonoBehaviour {
 
     public void SetGroundedState(bool grounded) {
         this.grounded = grounded;
+    }
+
+    void EquipItem(int index) {
+        if(index == previousItemIndex) return;
+        itemIndex = index;
+        items[itemIndex].itemGameObject.SetActive(true);
+        if(previousItemIndex != -1) items[previousItemIndex].itemGameObject.SetActive(false);
+        previousItemIndex = itemIndex;
+
+        if(PV.IsMine) {
+            Hashtable hash = new Hashtable();
+            hash.Add("itemIndex", itemIndex);
+            PhotonNetwork.LocalPlayer.SetCustomProperties(hash);
+        }
+    }
+
+    public override void OnPlayerPropertiesUpdate(Player targetPlayer, Hashtable changedProps)
+    {
+        if(!PV.IsMine && targetPlayer == PV.Owner) {
+            EquipItem((int)changedProps["itemIndex"]);
+        }
     }
 }
