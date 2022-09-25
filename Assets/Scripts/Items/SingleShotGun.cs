@@ -34,7 +34,7 @@ public class SingleShotGun : Gun {
             bulletImpactObj.transform.SetParent(colliders[0].transform);
         }
         muzzleFlash.SetActive(true);
-        LeanTween.delayedCall(0.2f, () => {
+        LeanTween.delayedCall(0.1f, () => {
             muzzleFlash.SetActive(false);
         });
     }
