@@ -33,6 +33,8 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable {
     }
 
     void Start() {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
         if (PV.IsMine) {
             EquipItem(0);
         } else {
