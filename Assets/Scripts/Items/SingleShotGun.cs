@@ -14,12 +14,14 @@ public class SingleShotGun : Gun {
         Shoot();
     }
 
-    void Shoot() {
+    void Shoot()
+    {
         Ray ray = cam.ViewportPointToRay(new Vector3(.5f, .5f));
         ray.origin = cam.transform.position;
-        if(Physics.Raycast(ray, out RaycastHit hit)) {
+        if (Physics.Raycast(ray, out RaycastHit hit))
+        {
             hit.collider.gameObject.GetComponent<IDamageable>()?.TakeDamage(((GunInfo)itemInfo).damage);
-            PV.RPC("RPC_Shoot", RpcTarget.All, hit.point, hit.normal); 
+            PV.RPC(nameof(RPC_Shoot), RpcTarget.All, hit.point, hit.normal);
         }
     }
 
@@ -31,5 +33,9 @@ public class SingleShotGun : Gun {
             Destroy(bulletImpactObj, 10f);
             bulletImpactObj.transform.SetParent(colliders[0].transform);
         }
+        muzzleFlash.SetActive(true);
+        LeanTween.delayedCall(0.2f, () => {
+            muzzleFlash.SetActive(false);
+        });
     }
 }
